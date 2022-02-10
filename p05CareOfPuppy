@@ -1,0 +1,28 @@
+package ExamPreparation;
+
+import java.util.Scanner;
+
+public class p05CareOfPuppy {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int boughtFood = Integer.parseInt(scanner.nextLine());
+
+        int totalFood = 0;
+        String stop = scanner.nextLine();
+
+        while (!stop.equals("Adopted")){
+            int foodInGram = Integer.parseInt(stop);
+            totalFood = totalFood + foodInGram;
+
+            stop = scanner.nextLine();
+        }
+
+            if (totalFood <= boughtFood * 1000) {
+                System.out.printf("Food is enough! Leftovers: %d grams.", (boughtFood*1000) - totalFood);
+            } else {
+                System.out.printf("Food is not enough. You need %d grams more.", Math.abs(totalFood - (boughtFood * 1000)));
+
+        }
+    }
+}
