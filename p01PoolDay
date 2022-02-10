@@ -1,0 +1,31 @@
+package ExamPreparation;
+
+import java.util.Scanner;
+
+public class p01PoolDay {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //1.	Първи ред – брой на хората. Цяло число в интервала [1…100]
+        int people = Integer.parseInt(scanner.nextLine());
+        //2.	Втори ред – такса вход. Реално число в интервала [0.00…50.00]
+        double enter = Double.parseDouble(scanner.nextLine());
+        //3.	Трети ред – цена един за шезлонг. Реално число в интервала [0.00…50.00]
+        double sunbed = Double.parseDouble(scanner.nextLine());
+        //4.	Четвърти ред – цена за един чадър. Реално число в интервала [0.00...50.00]
+        double umbrella = Double.parseDouble(scanner.nextLine());
+
+        double totalEnter = people * enter;
+
+        double sumSunbed = Math.ceil(people * 0.75);
+        double totalSumSunbed = sumSunbed * sunbed;
+
+        double sumUmbrella = Math.ceil(people * 0.5);
+        double totalSumUmbrella = sumUmbrella * umbrella;
+
+        double result = totalEnter + totalSumSunbed + totalSumUmbrella;
+        System.out.printf("%.2f lv.", result);
+
+
+    }
+}
