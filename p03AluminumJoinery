@@ -1,0 +1,58 @@
+package ExamPreparation;
+
+import java.util.Scanner;
+
+public class p03AluminumJoinery {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int numberOfJoinery = Integer.parseInt(scanner.nextLine());
+        String typeOfJoinery = scanner.nextLine();
+        String typeOfDelivery = scanner.nextLine();
+
+        double price = 0;
+
+        if (numberOfJoinery<=10){
+            System.out.println("Invalid order");
+
+        }else if (typeOfJoinery.equals("90X130") || typeOfJoinery.equals("100X150") || typeOfJoinery.equals("130X180") || typeOfJoinery.equals("200X300")) {
+            if (typeOfJoinery.equals("90X130")) {
+                price = 110;
+                if (numberOfJoinery > 30 && numberOfJoinery <= 60) {
+                    price *= 0.95;
+                } else if (numberOfJoinery > 60) {
+                    price *= 0.92;
+                }
+            } else if (typeOfJoinery.equals("100X150")) {
+                price = 140;
+                if (numberOfJoinery >= 40 && numberOfJoinery <= 80) {
+                    price *= 0.94;
+                } else if (numberOfJoinery > 80) {
+                    price *= 0.9;
+                }
+            } else if (typeOfJoinery.equals("130X180")) {
+                price = 190;
+                if (numberOfJoinery >= 20 && numberOfJoinery <= 50) {
+                    price *= 0.93;
+                } else if (numberOfJoinery > 50) {
+                    price *= 0.88;
+                }
+            } else {
+                price = 250;
+                if (numberOfJoinery >= 25 && numberOfJoinery <= 50) {
+                    price *= 0.91;
+                } else if (numberOfJoinery > 50) {
+                    price *= 0.86;
+                }
+            }
+            price = price * numberOfJoinery;
+            if (typeOfDelivery.equals("With delivery")) {
+                price += 60;
+            }
+            if (numberOfJoinery > 99) {
+                price *= 0.96;
+            }
+            System.out.printf("%.2f BGN", price);
+        }
+    }
+}
