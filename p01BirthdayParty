@@ -1,0 +1,19 @@
+package ExamPreparation;
+
+import java.util.Scanner;
+
+public class p01BirthdayParty {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double rent = Double.parseDouble(scanner.nextLine());
+        double priceCake = rent * 0.2;
+        double priceDrinks = priceCake * 0.55;
+        double priceAnimator = rent/3;
+
+        double neededMoney = rent + priceCake + priceDrinks + priceAnimator;
+
+        System.out.println(neededMoney);
+
+    }
+}
