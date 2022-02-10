@@ -1,0 +1,25 @@
+package ExamPreparation;
+
+import java.util.Scanner;
+
+public class p01ChangeBureau {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int countBitcoin = Integer.parseInt(scanner.nextLine());
+        double countChina = Double.parseDouble(scanner.nextLine());
+        double commission = Double.parseDouble(scanner.nextLine());
+
+        double priceBitcoinsInLeva = countBitcoin * 1168;
+        double priceOfChinaInLeva = countChina * 0.264;
+
+        double sum = priceBitcoinsInLeva + priceOfChinaInLeva;
+        double euro = sum / 1.95;
+        double commissionPrice = euro * (commission/100);
+        double result = euro - commissionPrice;
+
+        System.out.printf("%.2f", result);
+
+
+    }
+}
