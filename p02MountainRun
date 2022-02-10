@@ -1,0 +1,24 @@
+package ExamPreparation;
+
+import java.util.Scanner;
+
+public class p02MountainRun {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double recordInSec = Double.parseDouble(scanner.nextLine());
+        double metres = Double.parseDouble(scanner.nextLine());
+        double timeInSecPerMetre = Double.parseDouble(scanner.nextLine());
+
+            double sumMetres = metres * timeInSecPerMetre;
+            double sumTime = Math.floor(metres/50) * 30;
+            double sumTotal = sumMetres + sumTime;
+
+            if (recordInSec<=sumTotal){
+                System.out.printf("No! He was %.2f seconds slower.", sumTotal - recordInSec);
+            }else {
+                System.out.printf("Yes! The new record is %.2f seconds.", sumTotal);
+
+        }
+    }
+}
