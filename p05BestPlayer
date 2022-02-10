@@ -1,0 +1,30 @@
+package ExamPreparation;
+
+import java.util.Scanner;
+
+public class p05BestPlayer {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String name = scanner.nextLine();
+
+        int bestGoal = 0;
+        String bestPlayer = " ";
+
+        while (!name.equals("END")){
+            int currentGoals = Integer.parseInt(scanner.nextLine());
+
+            if (currentGoals>bestGoal){
+                bestPlayer = name;
+                bestGoal = currentGoals;
+            }if (bestGoal>=10){
+                break;
+            }name= scanner.nextLine();
+        }System.out.printf("%s is the best player!%n", bestPlayer);
+        if (bestGoal>=3){
+            System.out.printf("He has scored %d goals and made a hat-trick !!!", bestGoal);
+        }else {
+            System.out.printf("He has scored %d goals.", bestGoal );
+        }
+    }
+}
