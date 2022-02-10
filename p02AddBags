@@ -1,0 +1,38 @@
+package ExamPreparation;
+
+import java.util.Scanner;
+
+public class p02AddBags {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //1.	Цената на багаж над 20кг - реално число в диапазона [10.0…80.0]
+        double PriceOfLuggageOver20kg = Double.parseDouble(scanner.nextLine());
+        //2.	Килограми на багажа – реално число в диапазона [1.0…32.0]
+        double luggageKg = Double.parseDouble(scanner.nextLine());
+        //3.	Дни до пътуването – цяло число в диапазона [1…60]
+        int daysToTravel = Integer.parseInt(scanner.nextLine());
+        //4.	Брой багажи – цяло число в диапазона [1…10]
+        int countOfLuggage = Integer.parseInt(scanner.nextLine());
+
+        double luggageTax = 0;
+
+        if (luggageKg <= 10){
+            luggageTax = PriceOfLuggageOver20kg * 0.2;
+        }else if (luggageKg <= 20){
+            luggageTax = PriceOfLuggageOver20kg * 0.5;
+        }else {
+            luggageTax = PriceOfLuggageOver20kg;
+        }
+        if (daysToTravel > 30){
+            luggageTax = luggageTax + (luggageTax * 0.1);
+        }else if (daysToTravel >= 7){
+            luggageTax = luggageTax + (luggageTax * 0.15);
+        }else {
+            luggageTax = luggageTax + (luggageTax * 0.4);
+        }
+
+        double result = luggageTax * countOfLuggage;
+        System.out.printf("The total price of bags is: %.2f lv. ", result);
+    }
+}
