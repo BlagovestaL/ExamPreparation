@@ -1,0 +1,46 @@
+package ExamPreparation;
+
+import java.util.Scanner;
+
+public class p04CinemaVoucher {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int voucher = Integer.parseInt(scanner.nextLine());
+
+        int countMovie = 0;
+        int countProduct = 0;
+
+        int sumMovie = 0;
+        int sumProduct = 0;
+
+        while (voucher>=0){
+            String stop = scanner.nextLine();
+            if (stop.equals("End")){
+                System.out.println(countMovie);
+                System.out.println(countProduct);
+                break;
+            }if (stop.length() <= 8){
+                sumProduct += stop.charAt(0) + stop.charAt(1);
+                if (sumProduct > voucher){
+                    System.out.println(countMovie);
+                    System.out.println(countProduct);
+                    break;
+                }
+                countProduct ++;
+                voucher -= sumProduct;
+            }else if (stop.length() > 8) {
+                sumMovie += stop.charAt(0) + stop.charAt(1);
+
+                if (sumMovie > voucher) {
+                    System.out.println(countMovie);
+                    System.out.println(stop);
+                    break;
+                }
+
+                countMovie++;
+                voucher -= sumMovie;
+            }
+        }
+    }
+}
