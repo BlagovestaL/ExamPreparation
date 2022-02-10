@@ -1,0 +1,29 @@
+package ExamPreparation;
+
+import java.util.Scanner;
+
+public class p01AgencyProfit {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //1.	Име на авиокомпанията - текст
+        String name = scanner.nextLine();
+        //2.	Брой билети за	 възрастни – цяло число в диапазона [1…400]
+        int countTickets = Integer.parseInt(scanner.nextLine());
+        //3.	Брой детски билети – цяло число в диапазона [25…120]
+        int countTicketsForKids = Integer.parseInt(scanner.nextLine());
+        //4.	Нетна цена на билет за възрастен – реално число в диапазона [100.0…1600.0]
+        double NetWorth = Double.parseDouble(scanner.nextLine());
+        //5.	Цената на такса обслужване - реално число в диапазона [10.0…50.0]
+        double tax = Double.parseDouble(scanner.nextLine());
+
+        double priceForKids = NetWorth * 0.3;
+        double priceForHuman = NetWorth + tax;
+        double kidsTicketsWithTax = priceForKids + tax;
+
+        double totalPrice = (countTicketsForKids * kidsTicketsWithTax) + (countTickets * priceForHuman);
+        double profit = totalPrice * 0.2;
+
+        System.out.printf("The profit of your agency from %s tickets is %.2f lv.", name, profit);
+    }
+}
