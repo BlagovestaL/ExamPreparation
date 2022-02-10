@@ -1,0 +1,64 @@
+package ExamPreparation;
+
+import java.util.Scanner;
+
+public class p03EnergyBooster {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //1.	Плод - текст с възможности: "Watermelon", "Mango", "Pineapple" или "Raspberry"
+        String fruit = scanner.nextLine();
+        //2.	Размерът на сета - текст с възможности: "small" или "big"
+        String set = scanner.nextLine();
+        //3.	Брой на поръчаните сетове - цяло число в интервала [1 … 10000]
+        int countGel = Integer.parseInt(scanner.nextLine());
+
+        double priceGel = 0;
+        double countAndPrice = 0;
+        double discount = 0;
+        double totalPrice = 0;
+
+        if (set.equals("small")){
+            switch (fruit){
+                case "Watermelon":
+                priceGel = 2 * 56;
+                    break;
+                case "Mango":
+                    priceGel = 2 * 36.66;
+                    break;
+                case "Pineapple":
+                    priceGel = 2 * 42.10;
+                    break;
+                case "Raspberry":
+                    priceGel = 2 * 20;
+                   break;
+            }
+        }else if (set.equals("big")){
+            switch (fruit) {
+                case "Watermelon":
+                    priceGel = 5 * 28.70;
+                    break;
+                case "Mango":
+                    priceGel = 5 * 19.60;
+                    break;
+                case "Pineapple":
+                    priceGel = 5 * 24.80;
+                    break;
+                case "Raspberry":
+                    priceGel = 5 * 15.20;
+                    break;
+            }
+        }countAndPrice = countGel * priceGel;
+        if (countAndPrice>=400 && countAndPrice<=1000){
+            discount = countAndPrice * 0.15;
+            totalPrice = countAndPrice - discount;
+            System.out.printf("%.2f lv.", totalPrice);
+        }else if (countAndPrice>1000){
+            discount = countAndPrice * 0.50;
+            totalPrice = countAndPrice - discount;
+            System.out.printf("%.2f lv.", totalPrice);
+        }else {
+            System.out.printf("%.2f lv.", countAndPrice);
+        }
+    }
+}
